@@ -62,7 +62,10 @@ Setting up a few containers is pretty annoying, try Docker-compose
     - docker-compose up -d -> detach, so it'll run in the background.
     - docker-compose down -> stop containers
   - Restart Policies
-    - no:= Never attempt to restart this . containers if it stops or crashes 
+    - 'no':= Never attempt to restart this . containers if it stops or crashes
+      - No must be in quotes b/c in a yaml file, no is considered false.
     - always:= If this container stops *for any reason* always try to restart it
     - on-failure:= Only restart if the container stops with an err code
     - unless-stopped:= Always restart unless the dev forcibly stops it
+  - docker-compose ps # Much like docker ps. Gives you the status of the running docker containers
+    - this will only work if your cwd is where the docker-compose file is. It's not like docker ps where you can run it anywhere.

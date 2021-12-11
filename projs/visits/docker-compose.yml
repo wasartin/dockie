@@ -5,7 +5,7 @@ services:
   redis-server:
     image: 'redis'
   node-app:
-    restart: always 
+    restart: 'no'
     # this means, look in the current directory for a dockerfile and use it to build
     build: .
     ports:

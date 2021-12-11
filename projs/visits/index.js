@@ -4,7 +4,6 @@ const process = require('process');
 
 const app = express();
 const client = redis.createClient({
-  process.exit(0);  // Used to crash the program
   //host: 'connectionURL'
   // But you just need to use the container name for the redis-server
   host: 'redis-server',
@@ -14,6 +13,7 @@ const client = redis.createClient({
 client.set('visits', 0);
 
 app.get('/', (req, res) => {
+  process.exit(0);  // Used to crash the program
   client.get('visits', (err, visits) => {
     res.send('Number of visits is ' + visits);
     client.set('visits', parseInt(visits) + 1);
