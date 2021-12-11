@@ -1,0 +1,12 @@
+# version of docker-compose you want to use
+version: '3'
+# services are your containers you want to make
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always 
+    # this means, look in the current directory for a dockerfile and use it to build
+    build: .
+    ports:
+      - "4001:8081"

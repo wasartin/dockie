@@ -1,0 +1,21 @@
+FROM node
+  # always the first line. FROM another image.
+  # Images on built on other images.
+  # This is installing the other image.
+
+ENV MONGO_DB_USERNAME_ADMIN=admin
+# setting env var, it's better to put these env vars into the
+# docker-compose file.
+
+RUN mkdir -p /home/app
+# RUN will run simple linux commands.
+
+COPY . /home/app
+# copy current folder files to /home/app. NOTE, when you do RUN,
+# it is executing inside of the container, so you couldn't just
+# RUN cp hostFile targetFileLocation. That is why you have this COPY command.
+
+CMD ["node", "server.js"]
+# start the app with: "node server.js" this executes an entrypoint linux command,
+# sometimes people just use a shell script. so CMD["entrypoint.sh"],
+# which would in this case have the lines

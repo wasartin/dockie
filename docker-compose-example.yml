@@ -1,0 +1,15 @@
+version:'3'
+services:
+  container-name:
+    image: image-name
+    ports:
+      - host:container
+    environment:
+      - variables
+  container-name-2:
+    image: different-image-name
+    ports:
+      - diff-host-port:diff-container-port-num
+    enviorment:
+      - env-var-1
+      - env-var-2
